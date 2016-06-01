@@ -5,7 +5,9 @@ api.get('/', function(re, res, next){
     res.send('Hello World');
 });
 
-console.log("Server started on port 3000...");
-api.listen(3000);
+var port = process.env.PORT || DEFAULT_PORT;
+
+console.log('Server started on port ' + port + '...');
+api.listen(port);
 
 module.exports = api;
