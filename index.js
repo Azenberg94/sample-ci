@@ -2,30 +2,36 @@ var express = require('express');
 var DEFAULT_PORT = 3000;
 var api = express();
 
+api.use(express.static('public'));
+
 api.get('/', function(req, res, next){
     res.send('Hello world');
 });
 
-api.get('/contacts', function(re, res, next){
+api.get('api/', function(req, res, next){
+    res.send('Hello world');
+});
+
+api.get('api/contacts', function(re, res, next){
     res.send([]);
 });
 
-api.get('/contacts/:name', function(req, res, next){
+api.get('api/contacts/:name', function(req, res, next){
    res.send(); 
 });
 
-api.post('/contacts/:name', function(req, res, next){
+api.post('api/contacts/:name', function(req, res, next){
    if(req.params.name === 'exist')
        return res.status(403).send();
    
    res.send();
 });
 
-api.put('/contacts/:name/:new', function(req, res, next){
+api.put('api/contacts/:name/:new', function(req, res, next){
     res.send();
 });
 
-api.delete('/contacts/:name', function(req, res, next){
+api.delete('api/contacts/:name', function(req, res, next){
     res.send();
 });
 

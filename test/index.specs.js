@@ -5,7 +5,7 @@ describe('contact', function(){
     describe('GET /contacts', function(){
         it('Should return the list of contacts', function(){
             return request(api)
-            .get('/contacts')
+            .get('/api/contacts')
             .send()
             .expect(200);
         });
@@ -14,14 +14,14 @@ describe('contact', function(){
     describe('POST /contacts/:name', function(){
         it('Should create a new contact', function(){
             return request(api)
-            .post('/contacts/foo')
+            .post('/api/contacts/foo')
             .send()
             .expect(200);
         });
         
         it('should not be authorized to create a new contact with an already existing name', function(){
             return request(api)
-            .post('/contacts/exist')
+            .post('/api/contacts/exist')
             .send()
             .expect(403);
         });
@@ -30,7 +30,7 @@ describe('contact', function(){
     describe('PUT /contacts/:name', function(){
        it('Should update the contact with the same name', function(){
            return request(api)
-           .put('/contacts/foo/bar')
+           .put('/api/contacts/foo/bar')
            .send()
            .expect(200);
        }); 
@@ -39,7 +39,7 @@ describe('contact', function(){
     describe('DELETE /contacts/:name', function(){
        it('Should delete the contact with the same name', function(){
           return request(api)
-          .delete('/contacts/foo')
+          .delete('/api/contacts/foo')
           .send()
           .expect(200);
        });
