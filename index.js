@@ -4,34 +4,34 @@ var api = express();
 
 api.use(express.static('public'));
 
-api.get('/', function(req, res, next){
+api.get('/api/', function(req, res, next){
     res.send('Hello world');
 });
 
-api.get('api/', function(req, res, next){
+api.get('/api/', function(req, res, next){
     res.send('Hello world');
 });
 
-api.get('api/contacts', function(re, res, next){
+api.get('/api/contacts', function(re, res, next){
     res.send([]);
 });
 
-api.get('api/contacts/:name', function(req, res, next){
+api.get('/api/contacts/:name', function(req, res, next){
    res.send(); 
 });
 
-api.post('api/contacts/:name', function(req, res, next){
+api.post('/api/contacts/:name', function(req, res, next){
    if(req.params.name === 'exist')
        return res.status(403).send();
    
    res.send();
 });
 
-api.put('api/contacts/:name/:new', function(req, res, next){
+api.put('/api/contacts/:name/:new', function(req, res, next){
     res.send();
 });
 
-api.delete('api/contacts/:name', function(req, res, next){
+api.delete('/api/contacts/:name', function(req, res, next){
     res.send();
 });
 
