@@ -7,8 +7,8 @@ module.exports = function(api){
     });
     
     router.get('/:name', function(req, res, next){
-        var contacts = _.filter(api.models.contacts, {name: name});
-        req.send(contacts);
+        var contacts = _.filter(api.models.contacts, {name: req.params.name});
+        res.send(contacts);
     });
 
     router.post('/:name', function(req, res, next){
