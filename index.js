@@ -21,8 +21,6 @@ api.post('/contacts/:name', function(req, res, next){
    res.send();
 });
 
-var port = process.env.PORT || DEFAULT_PORT;
-
 api.put('/contacts/:name/:new', function(req, res, next){
     res.send();
 });
@@ -32,9 +30,6 @@ api.delete('/contacts/:name', function(req, res, next){
 });
 
 var port = process.env.PORT || DEFAULT_PORT;
-
-console.log('Server started on port ' + port + '...');
-api.listen(port);
 
 console.log('Server started on port ' + port + '...');
 api.listen(port);
